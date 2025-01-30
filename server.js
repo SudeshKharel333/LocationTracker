@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const app = express();
 app.use(express.json());
-
+import { Analytics } from "@vercel/analytics/react"
 app.post("/log", (req, res) => {
     const { latitude, longitude } = req.body;
     const log = `User Location: Lat ${latitude}, Lon ${longitude}\n`;
