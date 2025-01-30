@@ -3,7 +3,7 @@ const fs = require("fs");
 const app = express();
 app.use(express.json());
 
-app.post("/log_location", (req, res) => {
+app.post("/log", (req, res) => {
     const { latitude, longitude } = req.body;
     const log = `User Location: Lat ${latitude}, Lon ${longitude}\n`;
 
